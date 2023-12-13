@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate detail</title>
+</head>
+<body>
+    <h2>Candidate</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td th:text="${candidate.id}"></td>
+            <td th:text="${candidate.fullName}"></td>
+            <td th:text="${candidate.email}"></td>
+            <td th:text="${candidate.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Exp ID</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Work desc</th>
+            <th>From date</th>
+            <th>To date</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="experience : ${candidate.experiences}">
+            <td th:text="${experience.id}"></td>
+            <td th:text="${experience.companyName}"></td>
+            <td th:text="${experience.role}"></td>
+            <td th:text="${experience.workDescription}"></td>
+            <td th:text="${experience.fromDate}"></td>
+            <td th:text="${experience.toDate}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
