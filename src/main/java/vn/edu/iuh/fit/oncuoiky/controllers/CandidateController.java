@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import vn.edu.iuh.fit.oncuoiky.services.CandidateServices;
 
 @Controller
+@RequestMapping("/admin")
 public class CandidateController {
     @Autowired
     private CandidateServices candidateServices;
@@ -37,22 +38,5 @@ public class CandidateController {
     public String getListCandidateByCompany(Model model, @RequestParam("company") String company){
         model.addAttribute("candidates", candidateServices.findCandidateByRoleAndCompany(company));
         return "/report1";
-    }
-
-    @GetMapping("/report2")
-    public String showReport2(Model model){
-        model.addAttribute("candidates", candidateServices.findCandidateByYear());
-        return "/report2";
-    }
-
-    @GetMapping("/report3")
-    public String showReport3(){
-        return "/report3";
-    }
-
-    @PostMapping("/report3")
-    public String getListCandidateByRole(Model model, @RequestParam("role") int role){
-        model.addAttribute("candidates", candidateServices.findCandidateByRole(role));
-        return "/report3";
     }
 }
